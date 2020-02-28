@@ -207,7 +207,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/">Vert.x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hazelcast/">hazelcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人记/">个人记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/如何阅读/">如何阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/有效阅读/">有效阅读</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome-plugin/">Chrome plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/">Vert.x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hazelcast/">hazelcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人记/">个人记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/如何阅读/">如何阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/有效阅读/">有效阅读</a></li></ul>
                     </div>
                 </section>
                 
@@ -311,7 +311,7 @@
         <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">739 字</span>
+        <span class="post-count">769 字</span>
         </span>
     </span>
 
@@ -372,7 +372,7 @@
 <h2 id="源码阅读"><a href="#源码阅读" class="headerlink" title="源码阅读"></a>源码阅读</h2><div align="center"><img src="/assets/img/20181018-hazelcastLicense/5.png" alt="hazelcast-mancenter-3.10.2.war.src"></div>
 
 <p>第一眼就看到了 <code>com.hazelcast.license</code> 包，先记着。再瞅瞅看还有没有通过类名就能找到的重点。 <code>com.hazelcast.webmonitor.service.LicenseManager</code> 嗯哼，这个类貌似就是重点了。</p>
-<p><code>com.hazelcast.license.util.LicenseHelper.java 代码节选</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> License <span class="title">checkLicenseKeyPerFeature</span><span class="params">(String licenseKey, String versionString, Feature feature)</span> </span>&#123;</span><br><span class="line">    License license = getLicense(licenseKey, versionString);</span><br><span class="line">    <span class="keyword">if</span> (!license.getFeatures().contains(feature)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"The Feature "</span> + feature.getText() + <span class="string">" is not enabled for your license key."</span> + <span class="string">"Please contact sales@hazelcast.com"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> license;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> License <span class="title">getLicense</span><span class="params">(String licenseKey, String versionString)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (licenseKey == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"License Key not configured!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    License license = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        license = LicenseExtractorV2.extractLicense(licenseKey);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InvalidLicenseException e1) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            license = LicenseExtractorV3.extractLicense(licenseKey);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvalidLicenseException e2) &#123;</span><br><span class="line">            license = LicenseExtractorV4.extractLicense(licenseKey);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> version = extractHazelcastMajorMinorVersionAsInt(versionString);</span><br><span class="line">    <span class="keyword">if</span> ((license.getHazelcastVersion() != <span class="number">99</span>) &amp;&amp; (license.getHazelcastVersion() != version)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"This license cannot work with your hazelcast version!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((license.isTrial()) &amp;&amp; (isExpired(license))) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"Trial license has expired! Please contact sales@hazelcast.com"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (isExpired(license)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"Enterprise License has expired! Please contact sales@hazelcast.com"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> license;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>com.hazelcast.license.util.LicenseHelper.java 代码节选</code><br></p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> License <span class="title">checkLicenseKeyPerFeature</span><span class="params">(String licenseKey, String versionString, Feature feature)</span> </span>{</span><br><span class="line">    License license = getLicense(licenseKey, versionString);</span><br><span class="line">    <span class="keyword">if</span> (!license.getFeatures().contains(feature)) {</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"The Feature "</span> + feature.getText() + <span class="string">" is not enabled for your license key."</span> + <span class="string">"Please contact sales@hazelcast.com"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> license;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> License <span class="title">getLicense</span><span class="params">(String licenseKey, String versionString)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (licenseKey == <span class="keyword">null</span>) {</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"License Key not configured!"</span>);</span><br><span class="line">    }</span><br><span class="line">    License license = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> {</span><br><span class="line">        license = LicenseExtractorV2.extractLicense(licenseKey);</span><br><span class="line">    } <span class="keyword">catch</span> (InvalidLicenseException e1) {</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            license = LicenseExtractorV3.extractLicense(licenseKey);</span><br><span class="line">        } <span class="keyword">catch</span> (InvalidLicenseException e2) {</span><br><span class="line">            license = LicenseExtractorV4.extractLicense(licenseKey);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">int</span> version = extractHazelcastMajorMinorVersionAsInt(versionString);</span><br><span class="line">    <span class="keyword">if</span> ((license.getHazelcastVersion() != <span class="number">99</span>) &amp;&amp; (license.getHazelcastVersion() != version)) {</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"This license cannot work with your hazelcast version!"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> ((license.isTrial()) &amp;&amp; (isExpired(license))) {</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"Trial license has expired! Please contact sales@hazelcast.com"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (isExpired(license)) {</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> InvalidLicenseException(<span class="string">"Enterprise License has expired! Please contact sales@hazelcast.com"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> license;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
 <p>最后跟着代码一步一步找到了 <code>com.hazelcast.license.extractor.LicenseExtractorV4.extractLicense()</code> 方法，代码就不贴了，就是提取license的算法。那这不是来活儿吗?</p>
 <h2 id="分析算法规则"><a href="#分析算法规则" class="headerlink" title="分析算法规则"></a>分析算法规则</h2><div align="center"><img src="/assets/img/20181018-hazelcastLicense/6.png" alt="LicenseExtractorV4"></div>
 
@@ -393,7 +393,25 @@
 <div align="center"><img src="/assets/img/20181018-hazelcastLicense/9.png" alt="hazelcast-license-generate"></div>
 
 <!-- <div style='display: none' class="github-widget" data-repo="Mr-hedy/hazelcast-license-generate"/> -->
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -420,6 +438,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/02/28/EurekaTools/">
+                    EurekaTools Chrome plugin
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -496,7 +520,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/02/28/EurekaTools/" title="上一篇: EurekaTools Chrome plugin">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -508,7 +534,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/hazelcastLicense/">hazelcast License generate</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/reading/">如何有效的阅读一本书</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/firstBlogs/">firstBlogs</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/28/EurekaTools/">EurekaTools Chrome plugin</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/hazelcastLicense/">hazelcast License generate</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/reading/">如何有效的阅读一本书</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/firstBlogs/">firstBlogs</a></li></ul>
 
 
 
@@ -522,7 +548,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i>
-                2018-2019 Mr.hedy
+                2018-2020 Mr.hedy
             </div>
             <div class="footer-right">
                 <!--
@@ -564,7 +590,7 @@
                 
                     <span>&nbsp;|&nbsp;</span>
                     <span id="busuanzi_container_word_count" style='display: inline;'>
-                        <span id="word-count"  title="本站总字数"><i class="fa fa-align-center" aria-hidden="true"></i><span id="busuanzi_value_word_count">9.9k</span>
+                        <span id="word-count"  title="本站总字数"><i class="fa fa-align-center" aria-hidden="true"></i><span id="busuanzi_value_word_count">10.2k</span>
                         </span>
                     </span>
                 

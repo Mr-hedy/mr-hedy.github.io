@@ -199,7 +199,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/">Vert.x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hazelcast/">hazelcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人记/">个人记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/如何阅读/">如何阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/有效阅读/">有效阅读</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome-plugin/">Chrome plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/">Vert.x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hazelcast/">hazelcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人记/">个人记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/如何阅读/">如何阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/有效阅读/">有效阅读</a></li></ul>
                     </div>
                 </section>
                 
@@ -303,7 +303,7 @@
         <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">98 字</span>
+        <span class="post-count">144 字</span>
         </span>
     </span>
 
@@ -386,7 +386,7 @@
 </tbody>
 </table>
 <ul>
-<li style="list-style: none"><input type="checkbox" checked> 完成</li>
+<li style="list-style: none"><input type="checkbox" checked=""> 完成</li>
 <li style="list-style: none"><input type="checkbox"> 未完成</li>
 </ul>
 <ol>
@@ -402,9 +402,27 @@
 <li><del>无序</del></li>
 </ul>
 <hr>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"name"</span>:<span class="string">"hedy"</span>&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello world"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{<span class="attr">"name"</span>:<span class="string">"hedy"</span>}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>{</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{</span><br><span class="line">        System.out.println(<span class="string">"hello world"</span>);</span><br><span class="line">    }</span><br><span class="line">       </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -519,7 +537,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/hazelcastLicense/">hazelcast License generate</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/reading/">如何有效的阅读一本书</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/firstBlogs/">firstBlogs</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/02/28/EurekaTools/">EurekaTools Chrome plugin</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/18/hazelcastLicense/">hazelcast License generate</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/26/reading/">如何有效的阅读一本书</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/firstBlogs/">firstBlogs</a></li></ul>
 
 
 
@@ -533,7 +551,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i>
-                2018-2019 Mr.hedy
+                2018-2020 Mr.hedy
             </div>
             <div class="footer-right">
                 <!--
@@ -575,7 +593,7 @@
                 
                     <span>&nbsp;|&nbsp;</span>
                     <span id="busuanzi_container_word_count" style='display: inline;'>
-                        <span id="word-count"  title="本站总字数"><i class="fa fa-align-center" aria-hidden="true"></i><span id="busuanzi_value_word_count">9.9k</span>
+                        <span id="word-count"  title="本站总字数"><i class="fa fa-align-center" aria-hidden="true"></i><span id="busuanzi_value_word_count">10.2k</span>
                         </span>
                     </span>
                 

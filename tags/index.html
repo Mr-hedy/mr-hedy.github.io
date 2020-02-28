@@ -15,14 +15,17 @@
 
 
 
+<meta name="description" content="document.querySelectorAll(&apos;.github-emoji&apos;)           .forEach(el =&amp;gt; {             if (!el.dataset.src) { return; }             const img = document.createElement(&apos;img&apos;);             img.style">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
 <meta property="og:url" content="https://hedy.xyz/tags/index.html">
 <meta property="og:site_name" content="何小嘿同学的学习笔记">
+<meta property="og:description" content="document.querySelectorAll(&apos;.github-emoji&apos;)           .forEach(el =&amp;gt; {             if (!el.dataset.src) { return; }             const img = document.createElement(&apos;img&apos;);             img.style">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-09-21T08:14:19.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tags">
+<meta name="twitter:description" content="document.querySelectorAll(&apos;.github-emoji&apos;)           .forEach(el =&amp;gt; {             if (!el.dataset.src) { return; }             const img = document.createElement(&apos;img&apos;);             img.style">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -193,7 +196,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/">Vert.x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hazelcast/">hazelcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人记/">个人记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/如何阅读/">如何阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/有效阅读/">有效阅读</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome-plugin/">Chrome plugin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vert-x/">Vert.x</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hazelcast/">hazelcast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/license/">license</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人记/">个人记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/如何阅读/">如何阅读</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/有效阅读/">有效阅读</a></li></ul>
                     </div>
                 </section>
                 
@@ -327,12 +330,12 @@
     <!-- Tag Cloud Page -->
     <hr>
 <br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/源码阅读/">源码阅读</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/源码阅读/">源码阅读</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul>
 
 <p class="count"></p>
 
 <div class="tags">
-    <a href="/tags/Vert-x/" style="font-size: 16px; color: #808080">Vert.x</a> <a href="/tags/hazelcast/" style="font-size: 16px; color: #808080">hazelcast</a> <a href="/tags/license/" style="font-size: 16px; color: #808080">license</a> <a href="/tags/个人记/" style="font-size: 16px; color: #808080">个人记</a> <a href="/tags/如何阅读/" style="font-size: 16px; color: #808080">如何阅读</a> <a href="/tags/有效阅读/" style="font-size: 16px; color: #808080">有效阅读</a>
+    <a href="/tags/Chrome-plugin/" style="font-size: 16px; color: #808080">Chrome plugin</a> <a href="/tags/Vert-x/" style="font-size: 16px; color: #808080">Vert.x</a> <a href="/tags/hazelcast/" style="font-size: 16px; color: #808080">hazelcast</a> <a href="/tags/license/" style="font-size: 16px; color: #808080">license</a> <a href="/tags/个人记/" style="font-size: 16px; color: #808080">个人记</a> <a href="/tags/如何阅读/" style="font-size: 16px; color: #808080">如何阅读</a> <a href="/tags/有效阅读/" style="font-size: 16px; color: #808080">有效阅读</a>
 </div>
 <style>
     .category-list li{
@@ -385,7 +388,25 @@
 </script>
 
           
-        
+        <script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -417,7 +438,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i>
-                2018-2019 Mr.hedy
+                2018-2020 Mr.hedy
             </div>
             <div class="footer-right">
                 <!--
@@ -459,7 +480,7 @@
                 
                     <span>&nbsp;|&nbsp;</span>
                     <span id="busuanzi_container_word_count" style='display: inline;'>
-                        <span id="word-count"  title="本站总字数"><i class="fa fa-align-center" aria-hidden="true"></i><span id="busuanzi_value_word_count">9.9k</span>
+                        <span id="word-count"  title="本站总字数"><i class="fa fa-align-center" aria-hidden="true"></i><span id="busuanzi_value_word_count">10.2k</span>
                         </span>
                     </span>
                 
