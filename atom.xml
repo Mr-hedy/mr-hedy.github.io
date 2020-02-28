@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hedy.xyz/"/>
-  <updated>2020-02-28T02:16:46.270Z</updated>
+  <updated>2020-02-28T02:56:59.589Z</updated>
   <id>https://hedy.xyz/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hedy.xyz/2020/02/28/EurekaTools/"/>
     <id>https://hedy.xyz/2020/02/28/EurekaTools/</id>
     <published>2020-02-27T16:36:30.000Z</published>
-    <updated>2020-02-28T02:16:46.270Z</updated>
+    <updated>2020-02-28T02:56:59.589Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Eureka-Tools"><a href="#Eureka-Tools" class="headerlink" title="Eureka Tools"></a>Eureka Tools</h1><p><img src="/assets/img/20200228-EurekaTools/icon_256.png" alt="Eureka Tools"></p><p><code>Eureka小工具</code><br>在基于SpringCloud的项目开发中，办公室的同学会直接将自己本地调试的服务注册到公共开发环境的Eureka。 :joy:<br>这个小工具可以方便对Eureka中的服务进行管理。<br>其实Eureka本身已经提供了对应用、实例进行管理的接口，但是没有体现在界面上。<br>那我们就帮帮他，通过<code>Chrome插件</code>的形式向页面中注入管理接口。<span class="github-emoji" style="display:inline;vertical-align:middle;color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p><p><img src="/assets/img/20200228-EurekaTools/1.png" alt="demo image"><br><img src="/assets/img/20200228-EurekaTools/2.png" alt="demo image"><br><img src="/assets/img/20200228-EurekaTools/3.png" alt="demo image"><br><img src="/assets/img/20200228-EurekaTools/4.png" alt="demo image"></p><div style="display: block" class="github-widget" data-repo="Mr-hedy/hazelcast-license-generate"></div><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    <content type="html"><![CDATA[<h1 id="Eureka-Tools"><a href="#Eureka-Tools" class="headerlink" title="Eureka Tools"></a>Eureka Tools</h1><p><img src="/assets/img/20200228-EurekaTools/icon_256.png" alt="Eureka Tools"></p><p><code>Eureka小工具</code><br>在基于SpringCloud的项目开发中，办公室的同学会直接将自己本地调试的服务注册到公共开发环境的Eureka。 :joy:<br>这个小工具可以方便对Eureka中的服务进行管理。<br>其实Eureka本身已经提供了对应用、实例进行管理的接口，但是没有体现在界面上。<br>那我们就帮帮他，通过<code>Chrome插件</code>的形式向页面中注入管理接口。<span class="github-emoji" style="display:inline;vertical-align:middle;color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p><p><img src="/assets/img/20200228-EurekaTools/1.png" alt="demo image"><br><img src="/assets/img/20200228-EurekaTools/2.png" alt="demo image"><br><img src="/assets/img/20200228-EurekaTools/3.png" alt="demo image"><br><img src="/assets/img/20200228-EurekaTools/4.png" alt="demo image"></p><div style="display: block" class="github-widget" data-repo="Mr-hedy/eurekaTools"></div><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
     <summary type="html">
     
